@@ -43,7 +43,7 @@ public class UserController {
             userSave = userService.save(userDto);
             return new ResponseEntity<>(MensajeResponse.builder()
                     .mensaje("Guardado Correctamente")
-                    .object(userDto.builder()
+                    .object(UserDto.builder()
                             .idUser(userSave.getIdUser())
                             .nombre(userSave.getNombre())
                             .apellido(userSave.getApellido())
@@ -76,7 +76,7 @@ public class UserController {
                 userUpdate = userService.save(userDto);
                 return new ResponseEntity<>(MensajeResponse.builder()
                         .mensaje("Guardado Correctamente")
-                        .object(userDto.builder()
+                        .object(UserDto.builder()
                                 .idUser(userUpdate.getIdUser())
                                 .nombre(userUpdate.getNombre())
                                 .apellido(userUpdate.getApellido())
