@@ -36,4 +36,15 @@ public class Local implements Serializable {
 
     @Column(name = "updated_at")
     public Timestamp updated_at;
+
+//    @OneToMany(mappedBy = "locals", cascade = CascadeType.ALL)
+//    private Set<Attention> attentions = new HashSet<>();
+//
+//    public void setAttention(Set<Attention> attentions){
+//        this.attentions = attentions;
+//        for(Attention attention : attentions){
+//            attention.setLocal(this);
+//        }
+//    }
+
 }
