@@ -5,6 +5,7 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -36,6 +37,9 @@ public class Local implements Serializable {
 
     @Column(name = "updated_at")
     public Timestamp updated_at;
+
+//    @OneToMany(mappedBy = "locals", fetch = FetchType.LAZY)
+//    private List<Attention> atenciones;
 
 //    @OneToMany(mappedBy = "locals", cascade = CascadeType.ALL)
 //    private Set<Attention> attentions = new HashSet<>();

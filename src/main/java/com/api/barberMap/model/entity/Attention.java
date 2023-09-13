@@ -29,12 +29,11 @@ public class Attention implements Serializable {
     @Column(name = "duracion")
     private Double duracion;
 
-    @Column(name = "locals_id")
-    private Integer locals_id;
-//    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-//    @JoinColumn(name = "locals_id")
-//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-//    private Local local;
+//    @Column(name = "locals_id")
+//    private Integer locals_id;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "locals_id")
+    private Local locals_id;
 
     @Column(name = "created_at")
     private Timestamp created_at;

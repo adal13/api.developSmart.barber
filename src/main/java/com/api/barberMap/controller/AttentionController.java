@@ -2,6 +2,7 @@ package com.api.barberMap.controller;
 
 import com.api.barberMap.model.dto.AttentionDto;
 import com.api.barberMap.model.entity.Attention;
+import com.api.barberMap.model.entity.Local;
 import com.api.barberMap.model.payload.MensajeResponse;
 import com.api.barberMap.service.IAttentionService;
 import com.api.barberMap.service.ILocalService;
@@ -23,7 +24,7 @@ public class AttentionController {
 
     @GetMapping("attentions")
     public ResponseEntity<?> showAll(){
-        List<Attention> getList = attentionService.listAll();
+        List<Attention> getList = (List<Attention>) attentionService.listAll();
         if (getList == null){
             return new ResponseEntity<>(MensajeResponse.builder()
                     .mensaje("No hay registro")
@@ -38,9 +39,17 @@ public class AttentionController {
                 , HttpStatus.OK);
     }
 
+
+
     @PostMapping("attention")
     public ResponseEntity<?> create(@RequestBody AttentionDto attentionDto){
         Attention attentionSave = null;
+        Integer localId = attentionDto.getLocals_id();
+        Local local = localService.findById(localId);
+
+        if (local == null) {
+            System.out.println(local);
+        }
         try {
             attentionSave = attentionService.save(attentionDto);
             return new ResponseEntity<>(MensajeResponse.builder()
@@ -50,7 +59,8 @@ public class AttentionController {
                             .nombre(attentionSave.getNombre())
                             .precio(attentionSave.getPrecio())
                             .duracion(attentionSave.getDuracion())
-                            .locals_id(attentionSave.getLocals_id())
+//                            .local(local)
+                            .locals_id(attentionSave.getLocals_id().getIdLocal())
                             .created_at(attentionSave.getCreated_at())
                             .update_at(attentionSave.getUpdate_at())
                             .build())
