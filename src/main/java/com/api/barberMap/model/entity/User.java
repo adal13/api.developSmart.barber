@@ -37,6 +37,9 @@ public class User implements Serializable {
     @Column(name = "password")
     private String contrasena;
 
+    @Column(name = "avatar")
+    private String avatar;
+
     @Column(name = "email_verified_at")
     private Timestamp emailVerified;
 

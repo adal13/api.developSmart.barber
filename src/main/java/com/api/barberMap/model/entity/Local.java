@@ -23,14 +23,23 @@ public class Local implements Serializable {
     @Column(name = "nombre")
     public String nombre;
 
-    @Column(name = "direccion")
-    public String direccion;
+    @Column(name = "estado")
+    public String estado;
+
+    @Column(name = "municipio")
+    public String municipio;
+
+    @Column(name = "calle")
+    public String calle;
 
     @Column(name = "ubicacion")
     public String ubicacion;
 
     @Column(name = "logo")
     public String logo;
+
+    @Column(name = "status")
+    public Integer status;
 
     @Column(name = "created_at")
     public Timestamp created_at;

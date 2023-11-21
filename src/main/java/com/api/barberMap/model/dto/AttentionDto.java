@@ -14,6 +14,7 @@ public class AttentionDto implements Serializable {
     private String nombre;
     private Double precio;
     private Double duracion;
+    private String imagen;
     private Integer locals_id;
     private Timestamp created_at;
     private Timestamp update_at;

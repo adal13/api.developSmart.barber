@@ -29,6 +29,7 @@ public class UserImplService implements IUserService {
                 .correo(userDto.getCorreo())
                 .nombreUsuario(userDto.getNombreUsuario())
                 .contrasena(userDto.getContrasena())
+                .avatar(userDto.getAvatar())
                 .emailVerified(userDto.getEmailVerified())
                 .rememberToken(userDto.getRememberToken())
                 .createdAt(userDto.getCreatedAt())

@@ -18,6 +18,7 @@ public class UserDto implements Serializable {
     private String correo;
     private String nombreUsuario;
     private String contrasena;
+    private String avatar;
     private Timestamp emailVerified;
     private String rememberToken;
     private Timestamp createdAt;

@@ -22,7 +22,7 @@ public class AttentionController {
     private IAttentionService attentionService;
     private ILocalService localService;
 
-    @GetMapping("attentions")
+    @GetMapping("services")
     public ResponseEntity<?> showAll(){
         List<Attention> getList = (List<Attention>) attentionService.listAll();
         if (getList == null){
@@ -41,7 +41,7 @@ public class AttentionController {
 
 
 
-    @PostMapping("attention")
+    @PostMapping("createservices")
     public ResponseEntity<?> create(@RequestBody AttentionDto attentionDto){
         Attention attentionSave = null;
         Integer localId = attentionDto.getLocals_id();
@@ -59,6 +59,7 @@ public class AttentionController {
                             .nombre(attentionSave.getNombre())
                             .precio(attentionSave.getPrecio())
                             .duracion(attentionSave.getDuracion())
+                            .imagen(attentionSave.getImagen())
 //                            .local(local)
                             .locals_id(attentionSave.getLocals_id().getIdLocal())
                             .created_at(attentionSave.getCreated_at())

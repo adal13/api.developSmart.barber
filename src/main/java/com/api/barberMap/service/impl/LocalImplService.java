@@ -25,9 +25,12 @@ public class LocalImplService implements ILocalService {
         Local local = Local.builder()
                 .idLocal(localDto.getIdLocal())
                 .nombre(localDto.getNombre())
-                .direccion(localDto.getDireccion())
+                .estado(localDto.getEstado())
+                .municipio(localDto.getMunicipio())
+                .calle(localDto.getCalle())
                 .ubicacion(localDto.getUbicacion())
                 .logo(localDto.getLogo())
+                .status(localDto.getStatus())
                 .created_at(localDto.getCreated_at())
                 .updated_at(localDto.getUpdated_at())
                 .build();

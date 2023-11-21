@@ -45,6 +45,7 @@ public class AttentionImplService implements IAttentionService {
                 .nombre(attentionDto.getNombre())
                 .precio(attentionDto.getPrecio())
                 .duracion(attentionDto.getDuracion())
+                .imagen(attentionDto.getImagen())
                 .locals_id(local)
 //                .locals_id(attentionDto.getLocals_id())
                 .created_at(attentionDto.getCreated_at())

@@ -29,6 +29,9 @@ public class Attention implements Serializable {
     @Column(name = "duracion")
     private Double duracion;
 
+    @Column(name = "imagen")
+    private String imagen;
+
 //    @Column(name = "locals_id")
 //    private Integer locals_id;
     @ManyToOne(fetch = FetchType.EAGER)
