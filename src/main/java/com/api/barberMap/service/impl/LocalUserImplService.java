@@ -33,8 +33,12 @@ public class LocalUserImplService implements ILocalUserService{
     @Override
     public LocalUser save(LocalUserDto localUserDto) {
         Integer localUserId = localUserDto.getIdLocalUser();
-        Local local = localService.findById(localUserId);
-        User user = userService.findById(localUserId);
+        Integer userId = localUserDto.getUser_id();
+        Integer localId = localUserDto.getLocals_id();
+        Local local = localService.findById(localId);
+        User user = userService.findById(userId);
+
+
 
         if(local == null){
             if(user == null){
@@ -45,9 +49,9 @@ public class LocalUserImplService implements ILocalUserService{
 
         LocalUser localUser = LocalUser.builder()
                 .idLocalUser(localUserId)
-                .user_id(localUserId)
-                .locals_id(localUserId)
-                .id_user_register(localUserId)
+                .user_id(user)
+                .locals_id(local)
+                .id_user_register(user)
                 .created_at(localUserDto.getCreated_at())
                 .updated_at(localUserDto.getUpdated_at())
                 .build();
