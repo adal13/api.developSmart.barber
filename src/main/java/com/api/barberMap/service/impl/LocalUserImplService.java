@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.api.barberMap.model.dao.LocalUserDao;
+import com.api.barberMap.model.dto.LocalDto;
 import com.api.barberMap.model.dto.LocalUserDto;
+import com.api.barberMap.model.dto.UserDto;
 import com.api.barberMap.service.ILocalService;
 import com.api.barberMap.service.ILocalUserService;
 import com.api.barberMap.service.IUserService;
@@ -33,10 +35,14 @@ public class LocalUserImplService implements ILocalUserService{
     @Override
     public LocalUser save(LocalUserDto localUserDto) {
         Integer localUserId = localUserDto.getIdLocalUser();
-        Integer userId = localUserDto.getUser_id();
-        Integer localId = localUserDto.getLocals_id();
-        Local local = localService.findById(localId);
-        User user = userService.findById(userId);
+        UserDto userId = localUserDto.getUser_id();
+        LocalDto localId = localUserDto.getLocals_id();
+
+        Integer userIds = userId.getIdUser();
+        Integer localIds = localId.getIdLocal();
+
+        Local local = localService.findById(localIds);
+        User user = userService.findById(userIds);
 
 
 
@@ -59,21 +65,21 @@ public class LocalUserImplService implements ILocalUserService{
         return localUserDao.save(localUser);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public LocalUser findById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+
+        return localUserDao.findById(id).orElse(null);
+
     }
 
     @Override
     public void delete(LocalUser localUser) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        localUserDao.delete(localUser);
     }
 
     @Override
     public boolean existeById(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'existeById'");
+        return localUserDao.existsById(id);
     }
 }

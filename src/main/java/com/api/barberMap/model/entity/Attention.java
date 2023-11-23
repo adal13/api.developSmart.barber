@@ -1,6 +1,5 @@
 package com.api.barberMap.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 

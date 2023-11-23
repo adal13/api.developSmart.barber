@@ -4,13 +4,9 @@ import com.api.barberMap.model.dao.AttentionDao;
 import com.api.barberMap.model.dto.AttentionDto;
 import com.api.barberMap.model.entity.Attention;
 import com.api.barberMap.model.entity.Local;
-import com.api.barberMap.model.payload.MensajeResponse;
 import com.api.barberMap.service.IAttentionService;
 import com.api.barberMap.service.ILocalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
