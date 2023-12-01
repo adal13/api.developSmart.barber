@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalTime;
 
 @Data
 @AllArgsConstructor
@@ -22,10 +23,10 @@ public class Cita implements Serializable {
     private Integer idCitas;
 
     @Column(name = "hora")
-    private Time hora;
+    private String hora;
 
     @Column(name = "fecha")
-    private Date fecha;
+    private String fecha;
 
     @Column(name = "barber_id")  // Cambiado a aceptar directamente el ID
     private Integer barber_id;

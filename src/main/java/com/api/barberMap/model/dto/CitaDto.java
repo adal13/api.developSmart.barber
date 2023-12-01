@@ -3,8 +3,10 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Data
 @AllArgsConstructor
@@ -14,8 +16,11 @@ import java.sql.Timestamp;
 public class CitaDto implements Serializable{
 
         private Integer idCitas;
-        private Time hora;
-        private Date fecha;
+        
+        //@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm")
+        private String hora;
+        
+        private String fecha;
         public Integer barber_id;
         public Integer service_id;
         public Integer user_id;
